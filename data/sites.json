@@ -1,0 +1,54 @@
+{
+  "owner": {
+    "name": "Souta Yamaguchi",
+    "subtitle": "AIエンジニア @ 株式会社oyoyo",
+    "intro": "Claude Code を片手に、毎日いろんな実験を作っています。"
+  },
+  "sites": [
+    {
+      "id": "room-simulator",
+      "title": "Room Simulator",
+      "tagline": "3D部屋の模様替えシミュレーター",
+      "description": "Three.js 製の3D部屋シミュレーター。間取り選択・壁紙/床/家具20種類以上・一人称視点で歩き回れる。模様替えを実物より先に試せる。",
+      "url": "https://room-simulator.pages.dev/",
+      "thumbnail": "static/img/room-simulator.png",
+      "tags": ["3D", "Three.js", "シミュレーター"],
+      "stack": "Vite + Three.js",
+      "color": "#5b9bff"
+    },
+    {
+      "id": "word-puzzle",
+      "title": "言葉ぷよ",
+      "tagline": "ひらがな落ちもの言葉パズル",
+      "description": "ぷよぷよ型の落ちものパズル。ひらがなブロックを縦横に並べて3文字以上の単語を作ると消える。1文字モードと2文字モード。",
+      "url": "https://word-puzzle.onrender.com/",
+      "url_note": "Render 無料枠のため初回30秒スリープあり",
+      "thumbnail": "static/img/word-puzzle.png",
+      "tags": ["ゲーム", "パズル", "Flask"],
+      "stack": "Flask + Canvas",
+      "color": "#ff7eb6"
+    },
+    {
+      "id": "philosopher-arena",
+      "title": "Philosopher Arena",
+      "tagline": "哲学者アリーナ（仮）",
+      "description": "（説明文は後で sites.json を編集してください）",
+      "url": "https://philosopher-arena.onrender.com/",
+      "thumbnail": "static/img/philosopher-arena.png",
+      "tags": ["AI", "対話"],
+      "stack": "Render",
+      "color": "#b48cff"
+    },
+    {
+      "id": "yukkuri-radio",
+      "title": "ゆっくりAIラジオ",
+      "tagline": "毎日AIニュースをゆっくり3キャラが語る",
+      "description": "Claude Code + VoiceVox で毎日自動生成しているゆっくりAIラジオ。霊夢・魔理沙・ずんだもんが今日のAIニュースを語る。",
+      "url": "https://www.youtube.com/@ai-yukkuri-radio",
+      "thumbnail": "static/img/yukkuri-radio.png",
+      "tags": ["YouTube", "AI", "自動生成"],
+      "stack": "Flask + VoiceVox + Claude",
+      "color": "#5fd97b"
+    }
+  ]
+}

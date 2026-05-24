@@ -1,0 +1,99 @@
+'use strict';
+
+const EMOJI_FALLBACK = {
+  '3D': '🏠',
+  'Three.js': '🏠',
+  'シミュレーター': '🏠',
+  'ゲーム': '🎮',
+  'パズル': '🧩',
+  'Flask': '🐍',
+  'YouTube': '📺',
+  'AI': '🤖',
+  '自動生成': '⚡',
+};
+
+function pickEmoji(tags) {
+  for (const tag of tags || []) {
+    if (EMOJI_FALLBACK[tag]) return EMOJI_FALLBACK[tag];
+  }
+  return '✨';
+}
+
+async function loadSites() {
+  try {
+    const res = await fetch('data/sites.json');
+    const data = await res.json();
+    renderOwner(data.owner);
+    renderSites(data.sites);
+  } catch (err) {
+    document.getElementById('sites-grid').innerHTML =
+      `<p class="loading">読み込み失敗: ${err.message}</p>`;
+  }
+}
+
+function renderOwner(owner) {
+  document.getElementById('owner-name').textContent = owner.name;
+  document.getElementById('owner-subtitle').textContent = owner.subtitle;
+  document.getElementById('owner-intro').textContent = owner.intro;
+  document.title = `${owner.name} — Works`;
+}
+
+async function imageExists(src) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = src;
+  });
+}
+
+async function renderSites(sites) {
+  const grid = document.getElementById('sites-grid');
+  grid.innerHTML = '';
+
+  for (const site of sites) {
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href = site.url;
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
+    card.style.setProperty('--accent', site.color || '#5b9bff');
+
+    const hasThumb = site.thumbnail && (await imageExists(site.thumbnail));
+
+    const tagsHtml = (site.tags || [])
+      .map(t => `<span class="card-tag">${escapeHtml(t)}</span>`)
+      .join('');
+
+    card.innerHTML = `
+      <div class="card-thumb ${hasThumb ? '' : 'placeholder'}"
+           ${hasThumb ? `style="background-image: url('${site.thumbnail}');"` : ''}>
+        ${hasThumb ? '' : `<div class="card-thumb-emoji">${pickEmoji(site.tags)}</div>`}
+      </div>
+      <div class="card-body">
+        <div class="card-title">${escapeHtml(site.title)}</div>
+        <div class="card-tagline">${escapeHtml(site.tagline || '')}</div>
+        <div class="card-description">${escapeHtml(site.description || '')}</div>
+        <div class="card-tags">${tagsHtml}</div>
+        <div class="card-meta">
+          <span class="card-stack">${escapeHtml(site.stack || '')}</span>
+          <span class="card-arrow">→</span>
+        </div>
+        ${site.url_note ? `<div class="card-note">${escapeHtml(site.url_note)}</div>` : ''}
+      </div>
+    `;
+    grid.appendChild(card);
+  }
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();
+loadSites();
