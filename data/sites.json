@@ -10,7 +10,7 @@
         {
           "id": "room-simulator",
           "title": "オヨヨ仮想オフィス",
-          "tagline": "3D部屋の模様替えシミュレーター",
+          "tagline": "3Dツール自主制作",
           "description": "Three.js 製の3D部屋シミュレーター。間取り選択・壁紙/床/家具20種類以上・一人称視点で歩き回れる。模様替えを実物より先に試せる。",
           "url": "https://room-simulator.pages.dev/",
           "thumbnail": "static/img/room-simulator.png",
@@ -33,7 +33,7 @@
         {
           "id": "philosopher-arena",
           "title": "哲学者アリーナ",
-          "tagline": "",
+          "tagline": "哲学者AIチャット",
           "description": "（説明文は後で sites.json を編集してください）",
           "url": "https://philosopher-arena.onrender.com/",
           "thumbnail": "static/img/philosopher-arena.png",
@@ -49,7 +49,7 @@
         {
           "id": "yukkuri-radio",
           "title": "ゆっくりAIラジオ",
-          "tagline": "毎日AIニュースをゆっくり3キャラが語る",
+          "tagline": "YouTubeチャンネル",
           "description": "Claude Code + VoiceVox で毎日自動生成しているゆっくりAIラジオ。霊夢・魔理沙・ずんだもんが今日のAIニュースを語る。",
           "url": "https://www.youtube.com/@ai-yukkuri-radio",
           "thumbnail": "static/img/yukkuri-radio.png",
