@@ -6,7 +6,7 @@
   "sites": [
     {
       "id": "room-simulator",
-      "title": "Room Simulator",
+      "title": "オヨヨ仮想オフィス",
       "tagline": "3D部屋の模様替えシミュレーター",
       "description": "Three.js 製の3D部屋シミュレーター。間取り選択・壁紙/床/家具20種類以上・一人称視点で歩き回れる。模様替えを実物より先に試せる。",
       "url": "https://room-simulator.pages.dev/",
@@ -29,8 +29,8 @@
     },
     {
       "id": "philosopher-arena",
-      "title": "Philosopher Arena",
-      "tagline": "哲学者アリーナ（仮）",
+      "title": "哲学者アリーナ",
+      "tagline": "",
       "description": "（説明文は後で sites.json を編集してください）",
       "url": "https://philosopher-arena.onrender.com/",
       "thumbnail": "static/img/philosopher-arena.png",
