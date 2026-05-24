@@ -53,6 +53,36 @@ body {
   margin: 0 auto;
 }
 
+/* ===== Section ===== */
+.section {
+  margin-bottom: 56px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #ccc;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2a2a40;
+  position: relative;
+}
+
+.section-heading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7eb6, #ffb86c);
+}
+
 /* ===== Sites Grid ===== */
 .sites {
   display: grid;

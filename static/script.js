@@ -24,9 +24,11 @@ async function loadSites() {
     const res = await fetch('data/sites.json');
     const data = await res.json();
     renderOwner(data.owner);
-    renderSites(data.sites);
+    // 新形式 (sections) と旧形式 (sites) の両対応
+    const sections = data.sections || [{ title: null, sites: data.sites || [] }];
+    await renderSections(sections);
   } catch (err) {
-    document.getElementById('sites-grid').innerHTML =
+    document.getElementById('sections-container').innerHTML =
       `<p class="loading">読み込み失敗: ${err.message}</p>`;
   }
 }
@@ -52,42 +54,59 @@ async function imageExists(src) {
   });
 }
 
-async function renderSites(sites) {
-  const grid = document.getElementById('sites-grid');
-  grid.innerHTML = '';
+async function renderSections(sections) {
+  const container = document.getElementById('sections-container');
+  container.innerHTML = '';
 
-  for (const site of sites) {
-    const card = document.createElement('a');
-    card.className = 'card';
-    card.href = site.url;
-    card.target = '_blank';
-    card.rel = 'noopener noreferrer';
-    card.style.setProperty('--accent', site.color || '#5b9bff');
+  for (const section of sections) {
+    const sectionEl = document.createElement('section');
+    sectionEl.className = 'section';
 
-    const hasThumb = site.thumbnail && (await imageExists(site.thumbnail));
+    if (section.title) {
+      const heading = document.createElement('h2');
+      heading.className = 'section-heading';
+      heading.textContent = section.title;
+      sectionEl.appendChild(heading);
+    }
 
-    const tagsHtml = (site.tags || [])
-      .map(t => `<span class="card-tag">${escapeHtml(t)}</span>`)
-      .join('');
+    const grid = document.createElement('div');
+    grid.className = 'sites';
+    sectionEl.appendChild(grid);
+    container.appendChild(sectionEl);
 
-    card.innerHTML = `
-      <div class="card-thumb ${hasThumb ? '' : 'placeholder'}"
-           ${hasThumb ? `style="background-image: url('${site.thumbnail}');"` : ''}>
-        ${hasThumb ? '' : `<div class="card-thumb-emoji">${pickEmoji(site.tags)}</div>`}
-      </div>
-      <div class="card-body">
-        <div class="card-title">${escapeHtml(site.title)}</div>
-        <div class="card-tagline">${escapeHtml(site.tagline || '')}</div>
-        <div class="card-description">${escapeHtml(site.description || '')}</div>
-        <div class="card-tags">${tagsHtml}</div>
-        <div class="card-meta">
-          <span class="card-stack">${escapeHtml(site.stack || '')}</span>
-          <span class="card-arrow">→</span>
+    for (const site of section.sites || []) {
+      const card = document.createElement('a');
+      card.className = 'card';
+      card.href = site.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.style.setProperty('--accent', site.color || '#5b9bff');
+
+      const hasThumb = site.thumbnail && (await imageExists(site.thumbnail));
+
+      const tagsHtml = (site.tags || [])
+        .map(t => `<span class="card-tag">${escapeHtml(t)}</span>`)
+        .join('');
+
+      card.innerHTML = `
+        <div class="card-thumb ${hasThumb ? '' : 'placeholder'}"
+             ${hasThumb ? `style="background-image: url('${site.thumbnail}');"` : ''}>
+          ${hasThumb ? '' : `<div class="card-thumb-emoji">${pickEmoji(site.tags)}</div>`}
         </div>
-        ${site.url_note ? `<div class="card-note">${escapeHtml(site.url_note)}</div>` : ''}
-      </div>
-    `;
-    grid.appendChild(card);
+        <div class="card-body">
+          <div class="card-title">${escapeHtml(site.title)}</div>
+          <div class="card-tagline">${escapeHtml(site.tagline || '')}</div>
+          <div class="card-description">${escapeHtml(site.description || '')}</div>
+          <div class="card-tags">${tagsHtml}</div>
+          <div class="card-meta">
+            <span class="card-stack">${escapeHtml(site.stack || '')}</span>
+            <span class="card-arrow">→</span>
+          </div>
+          ${site.url_note ? `<div class="card-note">${escapeHtml(site.url_note)}</div>` : ''}
+        </div>
+      `;
+      grid.appendChild(card);
+    }
   }
 }
 
