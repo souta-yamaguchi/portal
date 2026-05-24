@@ -50,7 +50,7 @@ body {
 .site-nav {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: stretch;
 }
 
@@ -61,6 +61,7 @@ body {
   padding: 0;
   gap: 32px;
   align-items: stretch;
+  width: 100%;
 }
 
 .site-nav li {
@@ -88,7 +89,7 @@ body {
 }
 
 .site-nav li.contact-item {
-  margin-left: 16px;
+  margin-left: auto;
 }
 
 .contact-btn {
