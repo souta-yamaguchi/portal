@@ -21,7 +21,7 @@
       "title": "言葉ぷよ",
       "tagline": "ひらがな落ちもの言葉パズル",
       "description": "ぷよぷよ型の落ちものパズル。ひらがなブロックを縦横に並べて3文字以上の単語を作ると消える。1文字モードと2文字モード。",
-      "url": "https://word-puzzle.onrender.com/",
+      "url": "https://word-puzzle-308p.onrender.com/",
       "url_note": "Render 無料枠のため初回30秒スリープあり",
       "thumbnail": "static/img/word-puzzle.png",
       "tags": ["ゲーム", "パズル", "Flask"],
