@@ -11,7 +11,81 @@ body {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 24px 40px;
+  padding: 40px 24px;
+}
+
+/* ===== Global Site Header (oyoyo.co.jp 統一ナビ) ===== */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.site-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.site-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 28px;
+}
+
+.site-nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.site-nav a:hover {
+  color: #ff7eb6;
+}
+
+.site-nav a.active {
+  color: #ff7eb6;
+  border-bottom-color: #ff7eb6;
+}
+
+@media (max-width: 800px) {
+  .site-header-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+  .site-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  .site-nav a {
+    font-size: 13px;
+  }
 }
 
 /* ===== Hero ===== */
