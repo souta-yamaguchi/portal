@@ -51,15 +51,20 @@ body {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: stretch;
 }
 
 .site-nav ul {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0 30px;
+  padding: 0;
   gap: 30px;
+  align-items: stretch;
+}
+
+.site-nav li {
+  display: flex;
   align-items: center;
 }
 
@@ -82,6 +87,10 @@ body {
   border-bottom-color: #22a87f;
 }
 
+.site-nav li.contact-item {
+  margin-left: 16px;
+}
+
 .contact-btn {
   background: #22a87f;
   color: #fff !important;
@@ -92,11 +101,12 @@ body {
   display: flex;
   align-items: center;
   transition: background 0.15s;
-  flex-shrink: 0;
+  border-bottom: none !important;
 }
 
 .contact-btn:hover {
   background: #1c8c69;
+  color: #fff !important;
 }
 
 @media (max-width: 900px) {
@@ -108,6 +118,7 @@ body {
   .site-logo {
     justify-content: center;
     padding: 12px 0;
+    margin-right: 0;
   }
   .site-nav {
     justify-content: center;
@@ -118,12 +129,17 @@ body {
     gap: 16px;
     padding: 0 16px 12px;
   }
+  .site-nav li.contact-item {
+    margin-left: 0;
+    width: 100%;
+  }
   .site-nav a {
     font-size: 13px;
   }
   .contact-btn {
     justify-content: center;
     padding: 14px;
+    width: 100%;
   }
 }
 
