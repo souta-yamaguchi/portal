@@ -34,7 +34,12 @@ async function loadSites() {
 function renderOwner(owner) {
   document.getElementById('owner-name').textContent = owner.name;
   document.getElementById('owner-subtitle').textContent = owner.subtitle;
-  document.getElementById('owner-intro').textContent = owner.intro;
+  const introEl = document.getElementById('owner-intro');
+  if (owner.intro) {
+    introEl.textContent = owner.intro;
+  } else {
+    introEl.style.display = 'none';
+  }
   document.title = `${owner.name} — Works`;
 }
 
