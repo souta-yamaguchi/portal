@@ -25,18 +25,19 @@ body {
 }
 
 .site-header-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 16px 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0 32px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  align-items: stretch;
+  gap: 0;
 }
 
 .site-logo {
-  display: block;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
+  padding: 12px 0;
 }
 
 .site-logo img {
@@ -45,12 +46,20 @@ body {
   display: block;
 }
 
+.site-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .site-nav ul {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0;
-  gap: 32px;
+  padding: 0 32px;
+  gap: 28px;
+  align-items: center;
 }
 
 .site-nav a {
@@ -64,27 +73,56 @@ body {
 }
 
 .site-nav a:hover {
-  color: #ff7eb6;
+  color: #22a87f;
 }
 
 .site-nav a.active {
-  color: #ff7eb6;
-  border-bottom-color: #ff7eb6;
+  color: #22a87f;
+  border-bottom-color: #22a87f;
 }
 
-@media (max-width: 800px) {
+.contact-btn {
+  background: #22a87f;
+  color: #fff !important;
+  padding: 0 36px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.contact-btn:hover {
+  background: #1c8c69;
+}
+
+@media (max-width: 900px) {
   .site-header-inner {
     flex-direction: column;
-    gap: 12px;
-    padding: 12px 16px;
+    align-items: stretch;
+    padding: 0;
+  }
+  .site-logo {
+    justify-content: center;
+    padding: 12px 0;
+  }
+  .site-nav {
+    justify-content: center;
   }
   .site-nav ul {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+    padding: 0 16px 12px;
   }
   .site-nav a {
     font-size: 13px;
+  }
+  .contact-btn {
+    justify-content: center;
+    padding: 14px;
   }
 }
 
