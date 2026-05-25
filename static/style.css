@@ -366,8 +366,9 @@ footer {
     height: 40px;
   }
   .site-nav {
+    display: block;
     width: 100%;
-    justify-content: stretch;
+    flex: none;
   }
   .site-nav ul {
     display: grid;
