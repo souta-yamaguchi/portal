@@ -354,31 +354,31 @@ body {
 }
 
 .card-body {
-  padding: 20px 22px 22px;
+  padding: 14px 18px 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .card-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   color: #fff;
 }
 
 .card-tagline {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--accent, #888);
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .card-description {
-  font-size: 13px;
+  font-size: 12px;
   color: #bbb;
-  line-height: 1.7;
-  margin-bottom: 16px;
+  line-height: 1.6;
+  margin-bottom: 0;
   flex: 1;
 }
 
@@ -396,12 +396,7 @@ body {
 }
 
 .card-meta {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 11px;
-  color: #666;
-  padding-top: 4px;
+  display: none;
 }
 
 .card-stack {
