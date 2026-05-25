@@ -11,7 +11,7 @@
           "id": "room-simulator",
           "title": "オヨヨ仮想オフィス",
           "tagline": "3Dツール自主制作",
-          "description": "Three.js 製の3D部屋シミュレーター。間取り選択・壁紙/床/家具20種類以上・一人称視点で歩き回れる。模様替えを実物より先に試せる。",
+          "description": "Three.js製の３Ｄオフィス。CPUと話せたり、机の上にミニゲームも…？",
           "url": "https://room-simulator.pages.dev/",
           "thumbnail": "static/img/room-simulator.png",
           "tags": ["3D", "Three.js", "シミュレーター"],
