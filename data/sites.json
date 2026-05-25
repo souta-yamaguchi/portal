@@ -22,7 +22,7 @@
           "id": "philosopher-arena",
           "title": "哲学者アリーナ",
           "tagline": "哲学者AIチャット",
-          "description": "（説明文は後で sites.json を編集してください）",
+          "description": "過去の偉人たちとチャットで話そう。それぞれの主義主張が学べる。",
           "url": "https://philosopher-arena.onrender.com/",
           "thumbnail": "static/img/philosopher-arena.png",
           "tags": ["AI", "対話"],
