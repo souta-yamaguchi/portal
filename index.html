@@ -13,7 +13,10 @@
     <a href="https://oyoyo.co.jp/" class="site-logo">
       <img src="static/img/oyoyo-logo.png" alt="オヨヨ株式会社">
     </a>
-    <nav class="site-nav">
+    <button class="hamburger" id="hamburger-btn" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav">
       <ul>
         <li><a href="https://oyoyo.co.jp/">ホーム</a></li>
         <li><a href="/" class="active">DX推進室</a></li>
@@ -27,6 +30,28 @@
     </nav>
   </div>
 </header>
+
+<script>
+  (function(){
+    var btn = document.getElementById('hamburger-btn');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function(){
+      var opened = nav.classList.toggle('is-open');
+      btn.classList.toggle('is-open', opened);
+      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      btn.setAttribute('aria-label', opened ? 'メニューを閉じる' : 'メニューを開く');
+    });
+    // メニュー内リンククリックで自動閉じる
+    nav.addEventListener('click', function(e){
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
 
 <div class="container">
 

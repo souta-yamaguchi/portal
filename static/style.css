@@ -24,6 +24,38 @@ body {
   z-index: 100;
 }
 
+/* ハンバーガーボタン (PC では非表示) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  margin: 0 auto;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .site-header-inner {
   width: 100%;
   margin: 0;
@@ -109,37 +141,91 @@ body {
   color: #fff !important;
 }
 
-@media (max-width: 900px) {
+/* スマホ・タブレット: ハンバーガーメニュー */
+@media (max-width: 992px) {
   .site-header-inner {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0;
+    padding: 0 16px;
+    justify-content: space-between;
   }
   .site-logo {
-    justify-content: center;
-    padding: 12px 0;
+    padding: 10px 0;
     margin-right: 0;
   }
-  .site-nav {
-    justify-content: center;
+  .site-logo img {
+    height: 48px;
   }
+  .hamburger {
+    display: flex;
+  }
+
+  /* ナビは drawer として右からスライドイン */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 80vw;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 200;
+    display: block;
+    flex: none;
+    padding-top: 70px;
+    overflow-y: auto;
+  }
+  .site-nav.is-open {
+    transform: translateX(0);
+  }
+
+  /* drawer 内のメニュー縦並び */
   .site-nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-    padding: 0 16px 12px;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .site-nav li {
+    display: block;
+    border-bottom: 1px solid #eee;
+  }
+  .site-nav a {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 14px;
+    border-bottom: none;
+    text-align: left;
+  }
+  .site-nav a.active {
+    color: #22a87f;
+    background: rgba(34, 168, 127, 0.08);
+    border-bottom-color: transparent;
   }
   .site-nav li.contact-item {
     margin-left: 0;
-    width: 100%;
-  }
-  .site-nav a {
-    font-size: 13px;
+    padding: 12px 16px;
+    border-bottom: none;
   }
   .contact-btn {
+    display: flex;
     justify-content: center;
     padding: 14px;
     width: 100%;
+    border-radius: 4px;
+  }
+
+  /* drawer が開いている時の背景オーバーレイ */
+  .site-nav.is-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+    transform: translateX(-100%);
+    width: 100vw;
   }
 }
 
@@ -352,62 +438,10 @@ footer {
   font-size: 12px;
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive (スマホ追加調整) ===== */
 @media (max-width: 600px) {
-  /* ヘッダー: ロゴ縮小 + メニュー 3 列グリッド */
-  .site-header-inner {
-    padding: 0;
-  }
-  .site-logo {
-    padding: 10px 0;
-    margin-right: 0;
-  }
   .site-logo img {
     height: 40px;
-  }
-  .site-nav {
-    display: block;
-    width: 100%;
-    flex: none;
-  }
-  .site-nav ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    padding: 0;
-    width: 100%;
-    border-top: 1px solid #e0e0e0;
-  }
-  .site-nav li {
-    border-right: 1px solid #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
-    justify-content: center;
-  }
-  .site-nav li:nth-child(3n) {
-    border-right: none;
-  }
-  .site-nav a {
-    font-size: 12px;
-    padding: 10px 4px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
-  .site-nav a.active {
-    border-bottom-color: transparent;
-    background: rgba(34, 168, 127, 0.08);
-  }
-  .site-nav li.contact-item {
-    grid-column: 1 / -1;
-    margin-left: 0;
-    border-right: none;
-    border-bottom: none;
-  }
-  .contact-btn {
-    width: 100%;
-    padding: 14px;
-    justify-content: center;
-    font-size: 13px;
   }
 
   /* ヒーロー: タイトル縮小 + 余白縮小 */
