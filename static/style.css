@@ -365,6 +365,10 @@ footer {
   .site-logo img {
     height: 40px;
   }
+  .site-nav {
+    width: 100%;
+    justify-content: stretch;
+  }
   .site-nav ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
