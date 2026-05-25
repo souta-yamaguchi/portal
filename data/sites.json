@@ -19,6 +19,17 @@
           "color": "#5b9bff"
         },
         {
+          "id": "philosopher-arena",
+          "title": "哲学者アリーナ",
+          "tagline": "哲学者AIチャット",
+          "description": "（説明文は後で sites.json を編集してください）",
+          "url": "https://philosopher-arena.onrender.com/",
+          "thumbnail": "static/img/philosopher-arena.png",
+          "tags": ["AI", "対話"],
+          "stack": "Render",
+          "color": "#b48cff"
+        },
+        {
           "id": "word-puzzle",
           "title": "言葉ぷよ",
           "tagline": "ひらがな落ちもの言葉パズル",
@@ -29,17 +40,6 @@
           "tags": ["ゲーム", "パズル", "Flask"],
           "stack": "Flask + Canvas",
           "color": "#ff7eb6"
-        },
-        {
-          "id": "philosopher-arena",
-          "title": "哲学者アリーナ",
-          "tagline": "哲学者AIチャット",
-          "description": "（説明文は後で sites.json を編集してください）",
-          "url": "https://philosopher-arena.onrender.com/",
-          "thumbnail": "static/img/philosopher-arena.png",
-          "tags": ["AI", "対話"],
-          "stack": "Render",
-          "color": "#b48cff"
         }
       ]
     },
