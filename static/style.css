@@ -383,10 +383,7 @@ body {
 }
 
 .card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
+  display: none;
 }
 
 .card-tag {
@@ -400,16 +397,15 @@ body {
 
 .card-meta {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   font-size: 11px;
   color: #666;
-  border-top: 1px solid #2a2a40;
-  padding-top: 12px;
+  padding-top: 4px;
 }
 
 .card-stack {
-  font-family: 'Consolas', monospace;
+  display: none;
 }
 
 .card-arrow {
