@@ -44,6 +44,23 @@
       ]
     },
     {
+      "title": "デスクトップアプリ",
+      "sites": [
+        {
+          "id": "teams-clone",
+          "title": "oyoyo-Teams",
+          "tagline": "Microsoft Teams クローン",
+          "description": "Microsoft Teams のデスクトップアプリを30分スプリントでクローン。チャネル・DM・カレンダー・会議・通話・ファイル等の基本機能を Electron で再現。",
+          "url": "https://github.com/souta-yamaguchi/teams_clone",
+          "url_note": "GitHub リポジトリ (Electron / ローカル起動: npm start)",
+          "thumbnail": "static/img/teams-clone.png",
+          "tags": ["デスクトップ", "Electron", "Teams"],
+          "stack": "Electron + Playwright",
+          "color": "#6264a7"
+        }
+      ]
+    },
+    {
       "title": "その他・制作物",
       "sites": [
         {
