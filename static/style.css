@@ -424,10 +424,14 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, #161628, #1a1a2e);
-  border: 1px solid #2a2a40;
+  /* A: グラスモーフィズム */
+  background: linear-gradient(180deg, rgba(22, 22, 40, 0.55), rgba(26, 26, 46, 0.65));
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 16px;
   overflow: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -435,8 +439,35 @@ body {
   /* スクロールフェードイン初期状態 */
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out,
-              border-color 0.2s, box-shadow 0.2s;
+  transition: opacity 0.6s ease-out, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s, box-shadow 0.3s;
+}
+
+/* C: 上端を流れるグラデーションライン */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent, #5b9bff) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  animation: card-top-stream 4.5s linear infinite;
+  z-index: 5;
+  opacity: 0.55;
+  transition: opacity 0.3s, height 0.3s;
+}
+
+@keyframes card-top-stream {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
 }
 
 .card.is-visible {
@@ -444,11 +475,19 @@ body {
   transform: translateY(0);
 }
 
+/* B: 光るホバー + 立体浮上 */
 .card.is-visible:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent, #555);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4),
-              0 0 0 1px var(--accent, transparent);
+  transform: translateY(-6px);
+  border-color: var(--accent, #888);
+  box-shadow:
+    0 0 0 1px var(--accent, rgba(255, 255, 255, 0.1)),
+    0 20px 48px rgba(0, 0, 0, 0.55),
+    0 0 80px -16px var(--accent, transparent);
+}
+
+.card.is-visible:hover::before {
+  opacity: 1;
+  height: 3px;
 }
 
 /* セクション見出しもフェードイン */
