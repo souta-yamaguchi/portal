@@ -104,12 +104,14 @@ body {
   z-index: 100;
 }
 
-/* ロゴが暗い背景で埋もれないよう、わずかにライトな背景パッチ */
-.site-logo {
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 10px;
-  padding: 6px 14px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+/* ロゴはダーク背景に溶け込むよう白モノトーン化 */
+.site-logo img {
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  transition: opacity 0.2s;
+}
+.site-logo:hover img {
+  opacity: 1;
 }
 
 /* ハンバーガーボタン (PC では非表示) */
