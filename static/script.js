@@ -132,7 +132,6 @@ function setupScrollFadeIn() {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const el = entry.target;
-      // section ごとに index をカウントして delay を作る
       const section = el.closest('.section');
       const idx = (seenSection.get(section) || 0);
       seenSection.set(section, idx + 1);
@@ -140,11 +139,26 @@ function setupScrollFadeIn() {
       observer.unobserve(el);
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.05,
+    rootMargin: '0px 0px 40px 0px',
   });
 
   targets.forEach(el => observer.observe(el));
+
+  // 初回ロード時に viewport 内の要素を即可視化（observer の発火を待たない）
+  requestAnimationFrame(() => {
+    targets.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
+      }
+    });
+  });
+
+  // フォールバック: 3 秒経っても見えていない要素は強制表示
+  setTimeout(() => {
+    targets.forEach(el => el.classList.add('is-visible'));
+  }, 3000);
 }
 
 function escapeHtml(s) {
