@@ -92,14 +92,24 @@ body {
   padding: 40px 24px;
 }
 
-/* ===== Global Site Header (oyoyo.co.jp 統一ナビ) ===== */
+/* ===== Global Site Header (グラスモーフィズム ダーク) ===== */
 .site-header {
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(10, 10, 20, 0.55);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02), 0 6px 24px rgba(0, 0, 0, 0.35);
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+/* ロゴが暗い背景で埋もれないよう、わずかにライトな背景パッチ */
+.site-logo {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  padding: 6px 14px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* ハンバーガーボタン (PC では非表示) */
@@ -120,7 +130,7 @@ body {
   display: block;
   width: 24px;
   height: 2px;
-  background: #333;
+  background: rgba(255, 255, 255, 0.9);
   margin: 0 auto;
   transition: transform 0.3s, opacity 0.3s;
 }
@@ -179,7 +189,7 @@ body {
 }
 
 .site-nav a {
-  color: #333;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -189,12 +199,12 @@ body {
 }
 
 .site-nav a:hover {
-  color: #22a87f;
+  color: #3fd9a6;
 }
 
 .site-nav a.active {
-  color: #22a87f;
-  border-bottom-color: #22a87f;
+  color: #3fd9a6;
+  border-bottom-color: #3fd9a6;
 }
 
 .site-nav li.contact-item {
@@ -202,7 +212,7 @@ body {
 }
 
 .contact-btn {
-  background: #22a87f;
+  background: linear-gradient(135deg, #22a87f 0%, #1a8a66 100%);
   color: #fff !important;
   padding: 0 36px;
   text-decoration: none;
@@ -210,13 +220,15 @@ body {
   font-weight: 500;
   display: flex;
   align-items: center;
-  transition: background 0.15s;
+  transition: filter 0.15s, box-shadow 0.15s;
   border-bottom: none !important;
+  box-shadow: 0 0 0 1px rgba(34, 168, 127, 0.4), 0 0 20px -4px rgba(34, 168, 127, 0.5);
 }
 
 .contact-btn:hover {
-  background: #1c8c69;
+  filter: brightness(1.1);
   color: #fff !important;
+  box-shadow: 0 0 0 1px rgba(34, 168, 127, 0.6), 0 0 28px -2px rgba(34, 168, 127, 0.7);
 }
 
 /* スマホ・タブレット: ハンバーガーメニュー */
@@ -236,7 +248,7 @@ body {
     display: flex;
   }
 
-  /* ナビは drawer として右からスライドイン */
+  /* ナビは drawer として右からスライドイン (ダーク + glass) */
   .site-nav {
     position: fixed;
     top: 0;
@@ -244,8 +256,10 @@ body {
     width: 280px;
     max-width: 80vw;
     height: 100vh;
-    background: #fff;
-    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+    background: rgba(15, 15, 28, 0.92);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 200;
@@ -267,7 +281,7 @@ body {
   }
   .site-nav li {
     display: block;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
   .site-nav a {
     display: block;
@@ -278,8 +292,8 @@ body {
     text-align: left;
   }
   .site-nav a.active {
-    color: #22a87f;
-    background: rgba(34, 168, 127, 0.08);
+    color: #3fd9a6;
+    background: rgba(34, 168, 127, 0.15);
     border-bottom-color: transparent;
   }
   .site-nav li.contact-item {
