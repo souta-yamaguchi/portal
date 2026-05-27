@@ -214,23 +214,26 @@ body {
 }
 
 .contact-btn {
-  background: linear-gradient(135deg, #22a87f 0%, #1a8a66 100%);
-  color: #fff !important;
-  padding: 0 36px;
+  background: rgba(63, 217, 166, 0.08);
+  color: #3fd9a6 !important;
+  padding: 9px 22px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
+  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
-  transition: filter 0.15s, box-shadow 0.15s;
-  border-bottom: none !important;
-  box-shadow: 0 0 0 1px rgba(34, 168, 127, 0.4), 0 0 20px -4px rgba(34, 168, 127, 0.5);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  border: 1px solid rgba(63, 217, 166, 0.35) !important;
+  border-radius: 999px;
+  margin: 0 4px;
+  box-shadow: none;
 }
 
 .contact-btn:hover {
-  filter: brightness(1.1);
+  background: rgba(63, 217, 166, 0.18);
+  border-color: rgba(63, 217, 166, 0.6) !important;
   color: #fff !important;
-  box-shadow: 0 0 0 1px rgba(34, 168, 127, 0.6), 0 0 28px -2px rgba(34, 168, 127, 0.7);
 }
 
 /* スマホ・タブレット: ハンバーガーメニュー */
