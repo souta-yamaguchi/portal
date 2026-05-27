@@ -708,7 +708,10 @@ footer {
 /* ===== Responsive (スマホ追加調整) ===== */
 @media (max-width: 600px) {
   .site-logo img {
-    height: 40px;
+    height: 36px;
+  }
+  .site-header-inner {
+    padding: 0 12px;
   }
 
   /* ヒーロー: タイトル縮小 + 余白縮小 + オーブ縮小 */
@@ -721,9 +724,11 @@ footer {
     min-height: 50vh;
   }
   .hero h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
+    font-size: 30px;
+    letter-spacing: 1px;
     line-height: 1.3;
+    word-break: keep-all;
+    max-width: 100%;
   }
   .hero .subtitle {
     font-size: 12px;
