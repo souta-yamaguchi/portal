@@ -311,9 +311,9 @@ body {
 .hero {
   position: relative;
   text-align: center;
-  margin: 0 -24px 60px;  /* container の padding を相殺して画面端まで広げる */
-  padding: 80px 24px 120px;
-  min-height: 65vh;
+  margin: 0 -24px 40px;  /* container の padding を相殺して画面端まで広げる */
+  padding: 40px 24px 70px;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -328,7 +328,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(140px, 28vw, 380px);
+  font-size: clamp(110px, 22vw, 280px);
   font-weight: 900;
   letter-spacing: -0.04em;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
@@ -408,7 +408,7 @@ body {
 /* スクロール促進マーク */
 .hero-scroll {
   position: absolute;
-  bottom: 32px;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 11px;
