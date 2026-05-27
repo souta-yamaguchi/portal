@@ -316,18 +316,49 @@ body {
   border: 1px solid #2a2a40;
   border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: inherit;
+  /* スクロールフェードイン初期状態 */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out,
+              border-color 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
+.card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card.is-visible:hover {
   transform: translateY(-4px);
   border-color: var(--accent, #555);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4),
               0 0 0 1px var(--accent, transparent);
+}
+
+/* セクション見出しもフェードイン */
+.section-heading {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.section-heading.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* アクセシビリティ: アニメーション低減設定なら無効化 */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .section-heading {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+  }
 }
 
 .card-thumb {

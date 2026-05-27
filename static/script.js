@@ -108,6 +108,38 @@ async function renderSections(sections) {
       grid.appendChild(card);
     }
   }
+
+  setupScrollFadeIn();
+}
+
+function setupScrollFadeIn() {
+  const targets = document.querySelectorAll('.card, .section-heading');
+
+  // Intersection Observer 非対応ブラウザは即表示
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  // 同じ画面に複数のカードが入った時は少しずらしてフェードイン
+  const seenSection = new WeakMap();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      // section ごとに index をカウントして delay を作る
+      const section = el.closest('.section');
+      const idx = (seenSection.get(section) || 0);
+      seenSection.set(section, idx + 1);
+      setTimeout(() => el.classList.add('is-visible'), idx * 100);
+      observer.unobserve(el);
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px',
+  });
+
+  targets.forEach(el => observer.observe(el));
 }
 
 function escapeHtml(s) {
