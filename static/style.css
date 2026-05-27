@@ -213,7 +213,7 @@ body {
   margin-left: 16px;
 }
 
-.contact-btn {
+.site-nav a.contact-btn {
   background: rgba(63, 217, 166, 0.08);
   color: #3fd9a6 !important;
   padding: 0 80px;
@@ -234,7 +234,7 @@ body {
   align-self: center;
 }
 
-.contact-btn:hover {
+.site-nav a.contact-btn:hover {
   background: rgba(63, 217, 166, 0.18);
   border-color: rgba(63, 217, 166, 0.6) !important;
   color: #fff !important;
