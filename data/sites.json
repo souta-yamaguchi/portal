@@ -1,7 +1,6 @@
 {
   "owner": {
-    "name": "オヨヨAIX推進室",
-    "subtitle": "制作物一覧"
+    "name": "オヨヨAIX推進室"
   },
   "sections": [
     {
@@ -40,6 +39,17 @@
           "tags": ["ゲーム", "パズル", "Flask"],
           "stack": "Flask + Canvas",
           "color": "#ff7eb6"
+        },
+        {
+          "id": "type-defense",
+          "title": "TYPE DEFENSE",
+          "tagline": "タイピング×タワーディフェンス",
+          "description": "敵モンスターが城壁に迫る！ローマ字タイピングで撃退するタワーディフェンス。5種の敵、Wave制、社内ランキング付き。",
+          "url": "https://type-defense.onrender.com/",
+          "url_note": "Render 無料枠のため初回30秒スリープあり",
+          "tags": ["ゲーム", "タイピング", "Flask"],
+          "stack": "Flask + Canvas + PostgreSQL",
+          "color": "#d4a017"
         }
       ]
     },
