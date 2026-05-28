@@ -75,6 +75,17 @@
       "title": "その他・制作物",
       "sites": [
         {
+          "id": "manga-sekai",
+          "title": "マンガ×世界チャンネル",
+          "tagline": "YouTubeチャンネル",
+          "description": "霊夢と魔理沙のゆっくり解説チャンネル。こちらも毎日投稿中。",
+          "url": "https://www.youtube.com/@yukkuri_manga_sekai",
+          "thumbnail": "static/img/manga-sekai.png",
+          "tags": ["YouTube", "ゆっくり解説", "マンガ"],
+          "stack": "YouTube",
+          "color": "#ff7eb6"
+        },
+        {
           "id": "yukkuri-radio",
           "title": "ゆっくりAIラジオ",
           "tagline": "YouTubeチャンネル",
