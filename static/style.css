@@ -345,6 +345,17 @@ body {
   isolation: isolate;
 }
 
+/* ===== ページロード時の登場アニメーション ===== */
+@keyframes intro-fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes intro-fade-bg {
+  /* 背景文字は translate(-50%,-50%) を保持するため別キーフレーム */
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* 背景の巨大な英字「OYOYO」 */
 .hero-bg-text {
   position: absolute;
@@ -352,6 +363,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: clamp(110px, 22vw, 280px);
+  opacity: 0;
+  animation: intro-fade-bg 1.4s ease-out 0.5s forwards;
   font-weight: 900;
   letter-spacing: -0.04em;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
@@ -426,12 +439,16 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
+  opacity: 0;
+  animation: intro-fade 1.0s ease-out 1.8s forwards;
 }
 
 /* スクロール促進マーク */
 .hero-scroll {
   position: absolute;
   bottom: 18px;
+  opacity: 0;
+  animation: intro-fade 0.8s ease-out 2.8s forwards;
   left: 50%;
   transform: translateX(-50%);
   font-size: 11px;
@@ -606,10 +623,17 @@ body {
 /* アクセシビリティ: アニメーション低減設定なら無効化 */
 @media (prefers-reduced-motion: reduce) {
   .card,
-  .section-heading {
+  .section-heading,
+  .hero-bg-text,
+  .hero-content,
+  .hero-scroll {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
     transition: none;
+  }
+  .hero-bg-text {
+    transform: translate(-50%, -50%) !important;
   }
 }
 

@@ -145,20 +145,20 @@ function setupScrollFadeIn() {
 
   targets.forEach(el => observer.observe(el));
 
-  // 初回ロード時に viewport 内の要素を即可視化（observer の発火を待たない）
-  requestAnimationFrame(() => {
+  // 初回ロード時に viewport 内の要素を可視化（ヒーロー演出完了後の 3.2 秒）
+  setTimeout(() => {
     targets.forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add('is-visible');
       }
     });
-  });
+  }, 3200);
 
-  // フォールバック: 3 秒経っても見えていない要素は強制表示
+  // フォールバック: 6 秒経っても見えていない要素は強制表示
   setTimeout(() => {
     targets.forEach(el => el.classList.add('is-visible'));
-  }, 3000);
+  }, 6000);
 }
 
 function escapeHtml(s) {
