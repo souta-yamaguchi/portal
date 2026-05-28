@@ -94,9 +94,10 @@ async function renderSections(sections) {
         .join('');
 
       card.innerHTML = `
-        <div class="card-thumb ${hasThumb ? '' : 'placeholder'}"
-             ${hasThumb ? `style="background-image: url('${site.thumbnail}');"` : ''}>
-          ${hasThumb ? '' : `<div class="card-thumb-emoji">${pickEmoji(site.tags)}</div>`}
+        <div class="card-thumb ${hasThumb ? '' : 'placeholder'}">
+          ${hasThumb
+            ? `<img src="${site.thumbnail}" alt="${escapeHtml(site.title)}" loading="lazy">`
+            : `<div class="card-thumb-emoji">${pickEmoji(site.tags)}</div>`}
         </div>
         <div class="card-body">
           <div class="card-title">${escapeHtml(site.title)}</div>
