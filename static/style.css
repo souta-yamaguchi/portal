@@ -335,7 +335,7 @@ body {
   position: relative;
   text-align: center;
   margin: 0 -24px 40px;  /* container の padding を相殺して画面端まで広げる */
-  padding: 60px 24px 55px;
+  padding: 65px 24px 55px;
   min-height: 40vh;
   display: flex;
   flex-direction: column;
