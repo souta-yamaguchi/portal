@@ -135,7 +135,7 @@ function setupScrollFadeIn() {
       const section = el.closest('.section');
       const idx = (seenSection.get(section) || 0);
       seenSection.set(section, idx + 1);
-      setTimeout(() => el.classList.add('is-visible'), idx * 100);
+      setTimeout(() => el.classList.add('is-visible'), idx * 220);
       observer.unobserve(el);
     });
   }, {
