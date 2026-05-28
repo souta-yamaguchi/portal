@@ -75,6 +75,17 @@
       "title": "その他・制作物",
       "sites": [
         {
+          "id": "yukkuri-radio",
+          "title": "ゆっくりAIラジオ",
+          "tagline": "YouTubeチャンネル",
+          "description": "Claude Code × VoiceVOXで毎日自動生成。AIたちがAIについて語ります。",
+          "url": "https://www.youtube.com/@ai-yukkuri-radio",
+          "thumbnail": "static/img/yukkuri-radio.png",
+          "tags": ["YouTube", "AI", "自動生成"],
+          "stack": "Flask + VoiceVox + Claude",
+          "color": "#5fd97b"
+        },
+        {
           "id": "manga-sekai",
           "title": "マンガ×世界チャンネル",
           "tagline": "YouTubeチャンネル",
@@ -84,17 +95,6 @@
           "tags": ["YouTube", "ゆっくり解説", "マンガ"],
           "stack": "YouTube",
           "color": "#ff7eb6"
-        },
-        {
-          "id": "yukkuri-radio",
-          "title": "ゆっくりAIラジオ",
-          "tagline": "YouTubeチャンネル",
-          "description": "Claude Code + VoiceVox で毎日自動生成しているゆっくりAIラジオ。霊夢・魔理沙・ずんだもんが今日のAIニュースを語る。",
-          "url": "https://www.youtube.com/@ai-yukkuri-radio",
-          "thumbnail": "static/img/yukkuri-radio.png",
-          "tags": ["YouTube", "AI", "自動生成"],
-          "stack": "Flask + VoiceVox + Claude",
-          "color": "#5fd97b"
         }
       ]
     }
