@@ -466,7 +466,7 @@ body {
   position: absolute;
   bottom: 18px;
   opacity: 0;
-  animation: intro-fade 0.8s ease-out 3.2s forwards;
+  animation: intro-fade 0.8s ease-out 4.0s forwards;
   left: 50%;
   transform: translateX(-50%);
   font-size: 11px;
