@@ -382,7 +382,7 @@ body {
   transform: translate(-50%, -50%);
   font-size: clamp(110px, 22vw, 280px);
   opacity: 0;
-  animation: intro-fade-bg 1.4s ease-out 0.5s forwards;
+  animation: intro-bg-text 2.3s ease-out 0.5s forwards;
   font-weight: 900;
   letter-spacing: -0.04em;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
