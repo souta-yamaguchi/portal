@@ -465,23 +465,31 @@ body {
 .hero-scroll {
   position: absolute;
   bottom: 18px;
-  opacity: 0;
-  animation: intro-fade 0.8s ease-out 3.2s forwards;
   left: 50%;
-  transform: translateX(-50%);
   font-size: 11px;
   letter-spacing: 6px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
   z-index: 2;
   font-family: 'Helvetica Neue', sans-serif;
-  animation: scroll-bounce 2.4s ease-in-out infinite;
   pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%);
+  /* 3.2s 遅延でフェードイン、その後バウンス開始 */
+  animation:
+    intro-fade-scroll 0.8s ease-out 3.2s forwards,
+    scroll-bounce 2.4s ease-in-out 4.0s infinite;
+}
+
+@keyframes intro-fade-scroll {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
-  50%      { transform: translateX(-50%) translateY(8px); opacity: 1; }
+  /* opacity は触らず、transform のみ (intro-fade-scroll と競合させない) */
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(8px); }
 }
 
 .hero h1 {
