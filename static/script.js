@@ -143,22 +143,16 @@ function setupScrollFadeIn() {
     rootMargin: '0px 0px 40px 0px',
   });
 
-  targets.forEach(el => observer.observe(el));
-
-  // 初回ロード時に viewport 内の要素を可視化（ヒーロー演出完了後の 3.2 秒）
+  // ヒーロー演出 (約 3 秒) が終わるまで observer を起動しない
+  // これによりカードがタイトルより先に出ないようにする
   setTimeout(() => {
-    targets.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add('is-visible');
-      }
-    });
+    targets.forEach(el => observer.observe(el));
   }, 3200);
 
-  // フォールバック: 6 秒経っても見えていない要素は強制表示
+  // フォールバック: 7 秒経っても見えていない要素は強制表示
   setTimeout(() => {
     targets.forEach(el => el.classList.add('is-visible'));
-  }, 6000);
+  }, 7000);
 }
 
 function escapeHtml(s) {
