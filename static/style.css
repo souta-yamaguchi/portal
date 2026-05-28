@@ -350,10 +350,28 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes intro-fade-bg {
-  /* 背景文字は translate(-50%,-50%) を保持するため別キーフレーム */
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* 背景 OYOYO: はっきり出て、タイトル登場と同時に薄める */
+@keyframes intro-bg-text {
+  0%   {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0);
+  }
+  40%  {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.55);
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.95);
+  }
+  60%  {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.55);
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.95);
+  }
+  100% {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.015);
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.08);
+  }
 }
 
 /* 背景の巨大な英字「OYOYO」 */
