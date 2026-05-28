@@ -43,8 +43,8 @@
         {
           "id": "type-defense",
           "title": "TYPE DEFENSE",
-          "tagline": "タイピング×タワーディフェンス",
-          "description": "敵モンスターが城壁に迫る！ローマ字タイピングで撃退するタワーディフェンス。5種の敵、Wave制、社内ランキング付き。",
+          "tagline": "タイピングゲーム",
+          "description": "迫ってくる敵をタイピングで倒す。ランキング1位を目指そう。",
           "url": "https://type-defense.onrender.com/",
           "url_note": "Render 無料枠のため初回30秒スリープあり",
           "thumbnail": "static/img/type-defense.png",
