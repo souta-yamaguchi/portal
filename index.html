@@ -86,8 +86,61 @@
 
 <!-- AI チャット UI -->
 <button class="chat-fab" id="chat-fab" aria-label="AIに話しかける">
-  <span>✨</span>
-  <span class="chat-fab-label">AIに話しかける</span>
+  <span class="ai-speech" id="ai-speech">何か聞きたいことある？</span>
+  <svg class="ai-character" viewBox="0 0 180 240" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="aiBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6e7cff"/>
+        <stop offset="100%" stop-color="#b48cff"/>
+      </linearGradient>
+      <radialGradient id="aiGlow">
+        <stop offset="0%" stop-color="#b48cff" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#b48cff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- 後光 -->
+    <circle class="ai-glow" cx="90" cy="110" r="92" fill="url(#aiGlow)"/>
+
+    <!-- アンテナ -->
+    <line x1="90" y1="38" x2="90" y2="22" stroke="rgba(180, 140, 255, 0.85)" stroke-width="2.5" stroke-linecap="round"/>
+    <circle class="ai-antenna-tip" cx="90" cy="18" r="5" fill="#b48cff"/>
+
+    <!-- 頭 -->
+    <ellipse cx="90" cy="70" rx="38" ry="42" fill="url(#aiBodyGrad)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+
+    <!-- 目（左右） -->
+    <g class="ai-eye" transform="translate(76, 66)">
+      <circle r="6" fill="#fff"/>
+      <circle r="3" fill="#2a2a3e" cx="1" cy="0"/>
+    </g>
+    <g class="ai-eye" transform="translate(104, 66)">
+      <circle r="6" fill="#fff"/>
+      <circle r="3" fill="#2a2a3e" cx="1" cy="0"/>
+    </g>
+
+    <!-- 口 -->
+    <path d="M 78 90 Q 90 98 102 90" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- 体 -->
+    <rect x="58" y="118" width="64" height="80" rx="22" fill="url(#aiBodyGrad)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+
+    <!-- チェスト灯 -->
+    <circle class="ai-chest-light" cx="90" cy="158" r="9" fill="#5fd97b"/>
+    <circle cx="90" cy="158" r="4" fill="#fff" opacity="0.85"/>
+
+    <!-- 左腕（静止、体の左） -->
+    <g>
+      <rect x="38" y="125" width="18" height="55" rx="9" fill="url(#aiBodyGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <circle cx="47" cy="185" r="10" fill="url(#aiBodyGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    </g>
+
+    <!-- 右腕（手振り、上向き、肩=下端を中心に振る） -->
+    <g class="ai-arm-waving">
+      <rect x="122" y="60" width="18" height="60" rx="9" fill="url(#aiBodyGrad)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      <circle cx="131" cy="52" r="12" fill="url(#aiBodyGrad)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+    </g>
+  </svg>
 </button>
 
 <aside class="chat-panel" id="chat-panel" aria-label="AIチャット">

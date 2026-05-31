@@ -12,8 +12,43 @@
   const form = document.getElementById('chat-form');
   const input = document.getElementById('chat-input');
   const sendBtn = document.getElementById('chat-send');
+  const speech = document.getElementById('ai-speech');
 
   if (!fab || !panel || !form) return;
+
+  // ---- AI君の吹き出し（定期メッセージ） ----
+  const SPEECH_LINES = [
+    '何か聞きたいことある？',
+    'ねぇ、ちょっといい？',
+    'サイトのこと聞いて〜',
+    '気軽に話しかけて！',
+    'AIだよ。話そう？',
+    'おーい、こっちこっち',
+    '質問待ってるよ',
+  ];
+  let speechIndex = 0;
+  let speechTimer = null;
+
+  function showSpeech() {
+    if (!speech || panel.classList.contains('is-open')) return;
+    speech.textContent = SPEECH_LINES[speechIndex % SPEECH_LINES.length];
+    speechIndex++;
+    speech.classList.add('is-visible');
+    clearTimeout(speechTimer);
+    speechTimer = setTimeout(() => {
+      speech.classList.remove('is-visible');
+    }, 4000);
+  }
+
+  function hideSpeech() {
+    if (!speech) return;
+    speech.classList.remove('is-visible');
+    clearTimeout(speechTimer);
+  }
+
+  // 初回は 2.5 秒後に表示、その後 12 秒ごとに繰り返し
+  setTimeout(showSpeech, 2500);
+  setInterval(showSpeech, 12000);
 
   let history = loadHistory();
   let sending = false;
@@ -30,6 +65,7 @@
 
   fab.addEventListener('click', () => {
     panel.classList.add('is-open');
+    hideSpeech();
     setTimeout(() => input.focus(), 200);
     scrollToBottom();
   });
