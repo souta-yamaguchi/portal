@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Souta Yamaguchi — Works</title>
 <link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" href="static/chat.css">
 </head>
 <body>
 
@@ -83,6 +84,37 @@
 
 </div>
 
+<!-- AI チャット UI -->
+<button class="chat-fab" id="chat-fab" aria-label="AIに話しかける">
+  <span>✨</span>
+  <span class="chat-fab-label">AIに話しかける</span>
+</button>
+
+<aside class="chat-panel" id="chat-panel" aria-label="AIチャット">
+  <div class="chat-header">
+    <div class="chat-title">
+      <span class="chat-title-dot"></span>
+      <span>AI に話しかける</span>
+    </div>
+    <button class="chat-close" id="chat-close" aria-label="閉じる">×</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <form class="chat-form" id="chat-form">
+    <textarea
+      class="chat-input"
+      id="chat-input"
+      placeholder="メッセージを入力（Enter で送信）"
+      rows="1"
+      maxlength="1000"
+    ></textarea>
+    <button type="submit" class="chat-send" id="chat-send">送信</button>
+  </form>
+  <div class="chat-disclaimer">
+    Groq Llama 3.3 / 入力内容は Groq に送信されます
+  </div>
+</aside>
+
 <script src="static/script.js"></script>
+<script src="static/chat.js"></script>
 </body>
 </html>
